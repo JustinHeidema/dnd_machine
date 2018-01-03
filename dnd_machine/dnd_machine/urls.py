@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+import character_builder
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^character_builder/', include('character_builder.urls')),
+    url(r'^$', character_builder.views.home)
 ]

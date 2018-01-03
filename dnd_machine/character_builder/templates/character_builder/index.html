@@ -1,1 +1,13 @@
-<h1>Character Builder</h1>
+{% load render_bundle from webpack_loader %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Character Builder</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'character_builder/style.css' %}" />
+    </head>
+    <body>
+        <div id="container"></div>
+        {% render_bundle 'main' %}
+    </body>
+</html>

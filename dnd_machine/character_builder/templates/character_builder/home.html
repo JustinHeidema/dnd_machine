@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DnD Machine</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'character_builder/style.css' %}" />
+</head>
+<body>
+    <div id='home_div'>
+        <h2>Welcome to</h2>
+        <h1>DnD Machine</h1>
+        <form action="/character_builder">
+            <button type="submit">Create a Character</button>
+        </form>
+    </div>
+</body>
+</html>

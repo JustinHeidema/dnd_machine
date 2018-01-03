@@ -1,0 +1,108 @@
+html, body {
+	background-color: #210a04;
+	height: 99%;
+}
+
+#home_div {
+	color: #961901;
+	margin: 1%;
+	margin-bottom: 1%;
+	background-color: #ebdec2;
+	text-align: center;
+}
+
+#race_info {
+	border-radius: 5px;
+	float:left;
+	padding: .4%;
+	margin:.4%;
+	width: 48.2%;
+	height: 95vh;
+	background-color: #ebdec2;
+}
+
+#class_info {
+	border-radius: 5px;
+	padding: .4%;
+	margin:.4%;
+	width: 48.2%;
+	height:72vh;
+	float: right;
+	background-color: #ebdec2;
+}
+
+#character_choices table {
+	color: #961901;
+	background-color: #ebdec2;
+}
+
+#character_choices table tr th, td {
+	padding: 20px;
+}
+
+#character_choices tr {
+	text-align: center;
+}
+
+#character_choices input {
+	width: 30%;
+}
+
+#character_choices {
+	border-radius: 5px;
+	width: 48.2%;
+	padding: .4%;
+	margin:.4%;
+	float: right;
+	background-color: #ebdec2;
+}
+
+#race_info h1 {
+	color: #961901;
+}
+
+#class_info h1 {
+	color: #961901;
+}
+
+#race_info h3 {
+	color: #961901;
+}
+
+#class_info h3 {
+	color: #961901;
+}
+
+#race_stats {
+	float:left;
+}
+
+#class_stats {
+
+}
+
+#race_buttons {
+	width: 100%;
+}
+
+#class_buttons {
+	width: 100%;
+	background-color: ebdec2;
+}
+
+#race_buttons form > button {
+	font-weight: bold;
+	float:left;
+	width: 33.33%;
+	color: #09273e;
+}
+
+#class_buttons form > button {
+	font-weight: bold;
+	float:left;
+	width:25%;
+	color: #09273e;
+}
+
+
+
