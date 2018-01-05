@@ -2,6 +2,27 @@ from django.db import models
 
 
 # Create your models here.
+
+
+class Character(models.Model):
+    name = models.CharField(default='',
+                            max_length=20)
+    race = models.CharField(default='',
+                            max_length=20)
+    _class = models.CharField(default='',
+                              max_length=20)
+
+    strength = models.IntegerField(default=0)
+    dexterity = models.IntegerField(default=0)
+    constitution = models.IntegerField(default=0)
+    intelligence = models.IntegerField(default=0)
+    wisdom = models.IntegerField(default=0)
+    charisma = models.IntegerField(default=0)
+    speed = models.IntegerField(default=0)
+
+    hit_die = models.IntegerField(default=0)
+
+
 class Race(models.Model):
     race_name = models.CharField(max_length=20,
                                  default='',
@@ -31,7 +52,7 @@ class RaceTrait(models.Model):
                                   blank=True,
                                   on_delete=models.CASCADE)
 
-    character = models.ForeignKey(Race,
+    character = models.ForeignKey(Character,
                                   related_name='character_race_traits',
                                   null=True,
                                   blank=True,
@@ -50,7 +71,7 @@ class Language(models.Model):
                                   blank=True,
                                   on_delete=models.CASCADE)
 
-    character = models.ForeignKey(Race,
+    character = models.ForeignKey(Character,
                                   related_name='character_languages',
                                   null=True,
                                   blank=True,
@@ -77,7 +98,7 @@ class Skill(models.Model):
                                    blank=True,
                                    on_delete=models.CASCADE)
 
-    character = models.ForeignKey(Class,
+    character = models.ForeignKey(Character,
                                   related_name='character_skills',
                                   null=True,
                                   blank=True,
@@ -98,7 +119,7 @@ class Proficiency(models.Model):
                                    blank=True,
                                    on_delete=models.CASCADE)
 
-    character = models.ForeignKey(Class,
+    character = models.ForeignKey(Character,
                                   related_name='character_proficiencies',
                                   null=True,
                                   blank=True,
@@ -116,25 +137,10 @@ class SavingThrow(models.Model):
                                    blank=True,
                                    on_delete=models.CASCADE)
 
-    character_name = models.ForeignKey(Class,
+    character = models.ForeignKey(Character,
                                        related_name='character_saving_throws',
                                        null=True,
                                        blank=True,
                                        on_delete=models.CASCADE)
 
 
-class Character(models.Model):
-    race = models.CharField(default='',
-                            max_length=20)
-    _class = models.CharField(default='',
-                              max_length=20)
-
-    strength = models.IntegerField(default=0)
-    dexterity = models.IntegerField(default=0)
-    constitution = models.IntegerField(default=0)
-    intelligence = models.IntegerField(default=0)
-    wisdom = models.IntegerField(default=0)
-    charisma = models.IntegerField(default=0)
-    speed = models.IntegerField(default=0)
-
-    hit_die = models.IntegerField(default=0)

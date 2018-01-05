@@ -1,13 +1,14 @@
 {% load templatetags %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Character Review</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'character_builder/style.css' %}" />
 </head>
 <body>
 {% block inner %}
-    <h1>Plain HTML</h1>
     <div id="container"></div>
 
     <script>

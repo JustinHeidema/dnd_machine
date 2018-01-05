@@ -58,15 +58,16 @@ class ClassSerializer(serializers.ModelSerializer):
 
 
 class CharacterSerializer(serializers.ModelSerializer):
-    # character_skills = serializers.StringRelatedField(many=True)
-    # character_proficiencies = ProficiencySerializer(many=True, read_only=True)
-    # character_saving_throws = SavingThrowSerializer(many=True, read_only=True)
-    # character_race_traits = RaceTraitSerializer(many=True, read_only=True)
-    # character_languages = serializers.StringRelatedField(many=True)
+    character_skills = serializers.StringRelatedField(many=True)
+    character_proficiencies = ProficiencySerializer(many=True, read_only=True)
+    character_saving_throws = SavingThrowSerializer(many=True, read_only=True)
+    character_race_traits = RaceTraitSerializer(many=True, read_only=True)
+    character_languages = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Character
-        fields = ('race',
+        fields = ('name',
+                  'race',
                   '_class',
                   'strength',
                   'dexterity',
@@ -75,7 +76,12 @@ class CharacterSerializer(serializers.ModelSerializer):
                   'wisdom',
                   'charisma',
                   'speed',
-                  'hit_die',)
+                  'hit_die',
+                  'character_skills',
+                  'character_proficiencies',
+                  'character_race_traits',
+                  'character_languages',
+                  'character_saving_throws')
 
 
 # class RaceSerializer(serializers.Serializer):

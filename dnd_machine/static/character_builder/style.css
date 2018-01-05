@@ -1,6 +1,31 @@
 html, body {
-	background-color: #210a04;
+	background-color: #260b04;
 	height: 99%;
+}
+
+#character_review {
+	border-radius: 5px;
+	padding: .4%;
+	margin:.4%;
+	background-color: #ebdec2;
+}
+
+#character_review h1 {
+	text-align: center;
+	color:#961901
+}
+
+#character_review h2 {
+	text-align: center;
+	color:#961901
+}
+
+#character_review h4 {
+	text-align: center;
+}
+
+#character_review p {
+	text-align: center;
 }
 
 #home_div {

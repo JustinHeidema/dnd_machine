@@ -3158,7 +3158,13 @@ var Character = function (_React$Component) {
                 wisdom: 0,
                 charisma: 0,
                 speed: 0,
-                hit_die: 0
+                hit_die: 0,
+                skill_array: [],
+                language_array: [],
+                race_traits: [{
+                    trait_name: "",
+                    trait_effect: ""
+                }]
             }
         };
         return _this;
@@ -3181,36 +3187,111 @@ var Character = function (_React$Component) {
         value: function render() {
             return React.createElement(
                 'div',
-                null,
+                { id: 'character_review' },
+                React.createElement(
+                    'h1',
+                    null,
+                    this.props.name
+                ),
                 React.createElement(
                     'h2',
                     null,
                     'Race: ',
-                    this.state.items.race
+                    this.props.race
                 ),
                 React.createElement(
                     'h2',
                     null,
                     'Class: ',
-                    this.state.items._class
+                    this.props._class
                 ),
                 React.createElement(
                     'h2',
                     null,
-                    'React ID: ',
-                    this.state.items.id
-                ),
-                React.createElement(
-                    'h2',
-                    null,
-                    'Django_asdfadsfID: ',
+                    'ID: ',
                     this.props.id
                 ),
                 React.createElement(
+                    'p',
+                    null,
+                    'Strength: ',
+                    this.props.strength
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'Dexterity: ',
+                    this.props.dexterity
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'Constitution: ',
+                    this.props.constitution
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'Intelligence: ',
+                    this.props.intelligence
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'Wisdom: ',
+                    this.props.wisdom
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'Charisma: ',
+                    this.props.charisma
+                ),
+                React.createElement(
                     'h2',
                     null,
-                    'TEST'
-                )
+                    'Skills'
+                ),
+                this.props.skill_array.map(function (skill) {
+                    return React.createElement(
+                        'p',
+                        { key: skill },
+                        skill
+                    );
+                }),
+                React.createElement(
+                    'h2',
+                    null,
+                    'Languages'
+                ),
+                this.props.language_array.map(function (language) {
+                    return React.createElement(
+                        'p',
+                        { key: language },
+                        language
+                    );
+                }),
+                React.createElement(
+                    'h2',
+                    null,
+                    'Race Traits'
+                ),
+                this.props.race_traits.map(function (race_trait) {
+                    return React.createElement(
+                        'div',
+                        null,
+                        React.createElement(
+                            'h4',
+                            { key: race_trait['trait_name'] },
+                            race_trait['trait_name']
+                        ),
+                        React.createElement(
+                            'p',
+                            { key: race_trait['trait_effect'] },
+                            race_trait['trait_effect']
+                        )
+                    );
+                })
             );
         }
     }]);

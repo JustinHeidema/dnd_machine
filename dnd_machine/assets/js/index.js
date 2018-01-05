@@ -287,13 +287,84 @@ export default class Index extends React.Component {
         let select_array = []
         for (let i = 0; i < this.state.class_items.from_skills_choose; i++)
         {
-            select_array.push(<select>
+            select_array.push(<select name={'skill' + i}>
                         {this.state.class_items.skills.map((result) =>
                         {return <option value={result} key={result}>{result}</option>})}
                     </select>
             )
         }
+
         return select_array
+    }
+
+    createLanguageInputs()
+    {
+        let language_array = []
+        for (let i = 0; i < this.state.race_items.languages.length; i++)
+        {
+            language_array.push(<input type='hidden' name={'languages' + i} value={this.state.race_items.languages[i]} />)
+        }
+        return language_array
+    }
+
+    createRaceTraitNameInputs()
+    {
+        let race_trait_name_array = []
+        for (let i = 0; i < this.state.race_items.race_traits.length; i++)
+        {
+            race_trait_name_array.push(<input type='hidden' name={'trait_name' + i} value={this.state.race_items.race_traits[i]['trait_name']} />)
+        }
+        return race_trait_name_array
+    }
+
+    createRaceTraitEffectInputs()
+    {
+        let race_trait_effect_array = []
+        for (let i = 0; i < this.state.race_items.race_traits.length; i++)
+        {
+            race_trait_effect_array.push(<input type='hidden' name={'trait_effect' + i} value={this.state.race_items.race_traits[i]['trait_effect']} />)
+        }
+        return race_trait_effect_array
+    }
+
+    createSavingThrowsShortNameInputs()
+    {
+        let saving_throws_short_name_array = []
+        for (let i = 0; i < this.state.class_items.saving_throws.length; i++)
+        {
+            saving_throws_short_name_array.push(<input type="hidden" name={'saving_throw_short_name' + i} value={this.state.class_items.saving_throws[i]['short_name']} />)
+        }
+        return saving_throws_short_name_array
+    }
+
+    createSavingThrowsLongNameInputs()
+    {
+        let saving_throws_long_name_array = []
+        for (let i = 0; i < this.state.class_items.saving_throws.length; i++)
+        {
+            saving_throws_long_name_array.push(<input type="hidden" name={'saving_throw_long_name' + i} value={this.state.class_items.saving_throws[i]['long_name']} />)
+        }
+        return saving_throws_long_name_array
+    }
+
+    createProficiencyInputs()
+    {
+        let proficiencies_array = []
+        for (let i = 0; i < this.state.class_items.proficiencies.length; i++)
+        {
+            proficiencies_array.push(<input type="hidden" name={'proficiencies' + i} value={this.state.class_items.proficiencies[i]['proficiency']} />)
+        }
+        return proficiencies_array
+    }
+
+    createProficiencyTypeInputs()
+    {
+        let proficiencies_type_array = []
+        for (let i = 0; i < this.state.class_items.proficiencies.length; i++)
+        {
+            proficiencies_type_array.push(<input type="hidden" name={'proficiencies_type' + i} value={this.state.class_items.proficiencies[i]['proficiency_type']} />)
+        }
+        return proficiencies_type_array
     }
 
     render () 
@@ -432,17 +503,30 @@ export default class Index extends React.Component {
                                     <th>Charisma</th>
                                 </tr>
                                 <tr>
-                                    <td><input type='text' name='strength' /></td>
-                                    <td><input type='text' name='dexterity' /></td>
-                                    <td><input type='text' name='constitution' /></td>
-                                    <td><input type='text' name='intelligence' /></td>
-                                    <td><input type='text' name='wisdom' /></td>
-                                    <td><input type='text' name='charisma' /></td>
+                                    <td><input type='text' name='strength' value="0" /></td>
+                                    <td><input type='text' name='dexterity' value="0" /></td>
+                                    <td><input type='text' name='constitution' value="0" /></td>
+                                    <td><input type='text' name='intelligence' value="0" /></td>
+                                    <td><input type='text' name='wisdom' value="0" /></td>
+                                    <td><input type='text' name='charisma' value="0" /></td>
                                 </tr>
                             </tbody>
                         </table>
                         {this.createSelectTags()}
+                        {this.createLanguageInputs()}
+                        {this.createRaceTraitNameInputs()}
+                        {this.createRaceTraitEffectInputs()}
+                        {this.createProficiencyInputs()}
+                        {this.createProficiencyTypeInputs()}
+                        {this.createSavingThrowsShortNameInputs()}
+                        {this.createSavingThrowsLongNameInputs()}
+                        <input type="hidden" name="class_name" value={this.state.class_items.class_name} />
+                        <input type="hidden" name="race_name" value={this.state.race_items.race_name} />
+                        <input type='text' name='character_name' placeholder='Enter a name for you character ' value="JoeBob"/>
                         <input type="submit" />
+                        <input type="hidden" name="num_languages" value={this.state.race_items.languages.length} />
+                        <input type="hidden" name="num_race_traits" value={this.state.race_items.race_traits.length} />
+                        <input type="hidden" name="num_proficiencies" value={this.state.class_items.proficiencies.length} />
                     </form>
                 </div>
             </div>
