@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from character_builder.models import Race, RaceTrait, Language, Class, Proficiency, Skill, SavingThrow
+from character_builder.models import Character, Race, RaceTrait, Language, Class, Proficiency, Skill, SavingThrow
 
 
 class RaceTraitSerializer(serializers.ModelSerializer):
@@ -55,6 +55,27 @@ class ClassSerializer(serializers.ModelSerializer):
                   'from_skills_choose',
                   'proficiencies',
                   'saving_throws')
+
+
+class CharacterSerializer(serializers.ModelSerializer):
+    # character_skills = serializers.StringRelatedField(many=True)
+    # character_proficiencies = ProficiencySerializer(many=True, read_only=True)
+    # character_saving_throws = SavingThrowSerializer(many=True, read_only=True)
+    # character_race_traits = RaceTraitSerializer(many=True, read_only=True)
+    # character_languages = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Character
+        fields = ('race',
+                  '_class',
+                  'strength',
+                  'dexterity',
+                  'constitution',
+                  'intelligence',
+                  'wisdom',
+                  'charisma',
+                  'speed',
+                  'hit_die',)
 
 
 # class RaceSerializer(serializers.Serializer):

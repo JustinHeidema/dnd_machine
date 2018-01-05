@@ -1,0 +1,21 @@
+{% load templatetags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Review</title>
+</head>
+<body>
+{% block inner %}
+    <h1>Plain HTML</h1>
+    <div id="container"></div>
+
+    <script>
+        window.props = {{props|json}};
+        window.react_mount = document.getElementById('container');
+    </script>
+    {% load static %}
+    <script src="{% static "src/character.js" %}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,4 +1,4 @@
-from character_builder.models import Class, Skill, Proficiency, SavingThrow
+from character_builder.models import Class, Skill, Proficiency, SavingThrow, Character
 from character_builder.serializers import ClassSerializer, ProficiencySerializer, SavingThrowSerializer
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser

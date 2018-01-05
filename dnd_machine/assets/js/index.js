@@ -2,7 +2,7 @@ var React = require('react')
 var ReactDOM = require('react-dom')
 import DjangoCSRFToken from 'django-react-csrftoken'
 
-export default class Main extends React.Component {
+export default class Index extends React.Component {
     constructor() 
     {
         super();
@@ -282,6 +282,19 @@ export default class Main extends React.Component {
        });
     }
 
+    createSelectTags()
+    {
+        let select_array = []
+        for (let i = 0; i < this.state.class_items.from_skills_choose; i++)
+        {
+            select_array.push(<select>
+                        {this.state.class_items.skills.map((result) =>
+                        {return <option value={result} key={result}>{result}</option>})}
+                    </select>
+            )
+        }
+        return select_array
+    }
 
     render () 
     {
@@ -406,34 +419,37 @@ export default class Main extends React.Component {
                     </div>
                 </div>
                 <div id='character_choices'>
-                    <h1>Select your Ability Scores</h1>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Strength</th>
-                                <th>Dexterity</th>
-                                <th>Constitution</th>
-                                <th>Intelligence</th>
-                                <th>Wisdom</th>
-                                <th>Charisma</th>
-                            </tr>
-                            <tr>
-                                <td><input type='text' name='strength' /></td>
-                                <td><input type='text' name='dexterity' /></td>
-                                <td><input type='text' name='constitution' /></td>
-                                <td><input type='text' name='intelligence' /></td>
-                                <td><input type='text' name='wisdom' /></td>
-                                <td><input type='text' name='charisma' /></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <form action='/character_builder/create_character/' method='POST' >
+                        <DjangoCSRFToken/>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Strength</th>
+                                    <th>Dexterity</th>
+                                    <th>Constitution</th>
+                                    <th>Intelligence</th>
+                                    <th>Wisdom</th>
+                                    <th>Charisma</th>
+                                </tr>
+                                <tr>
+                                    <td><input type='text' name='strength' /></td>
+                                    <td><input type='text' name='dexterity' /></td>
+                                    <td><input type='text' name='constitution' /></td>
+                                    <td><input type='text' name='intelligence' /></td>
+                                    <td><input type='text' name='wisdom' /></td>
+                                    <td><input type='text' name='charisma' /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {this.createSelectTags()}
+                        <input type="submit" />
+                    </form>
                 </div>
             </div>
         );
     }
 }
-
 ReactDOM.render(
-  <Main />,
+  <Index />,
   document.getElementById('container')
 );
